@@ -1,4 +1,9 @@
 # Solution for BRITISH INFORMATICS OLYMPIAD 2013
 
-## Question 1
-This solution gets 25/25 marks.
+## Questions
+
+|    Question    | Completed |
+|:--------------:|:---------:|
+| Question 1 (a) |     ✅     |
+| Question 1 (b) |     ✅     |
+| Question 1 (c) |     ❌     |

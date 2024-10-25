@@ -1,5 +1,8 @@
 #include <iostream>
 #include <math.h>
+#include <vector>
+
+void QuestionB();
 
 class Clock {
 public:
@@ -7,9 +10,7 @@ public:
     int minute = 0;
     int offset;
 
-    Clock(int offset) : offset(offset) {
-        std::cout << "Clock created with offset " << offset << "\n";
-    }
+    explicit Clock(int offset) : offset(offset) {}
     void printTime() {
         std::string hourString = hour < 10 ? "0" + std::to_string(hour) : std::to_string(hour);
         std::string minuteString = minute < 10 ? "0" + std::to_string(minute) : std::to_string(minute);
@@ -22,7 +23,9 @@ public:
         minute = newMinuteValue % 60;
         hour = static_cast<int>(std::floor(newMinuteValue / 60) + hour) % 24;
     }
-
+    bool operator==(const Clock &other) const {
+        return hour == other.hour && minute == other.minute;
+    }
 };
 
 int getInput() {
@@ -42,10 +45,34 @@ int main() {
     firstClock.addRealHour();
     secondClock.addRealHour();
 
-    while (firstClock.hour != secondClock.hour || firstClock.minute != secondClock.minute) {
+    while (firstClock != secondClock) {
         firstClock.addRealHour();
         secondClock.addRealHour();
     }
     firstClock.printTime();
+
+    QuestionB();
     return 0;
+}
+
+void QuestionB() {
+    std::vector<int> answers;
+    for (int i = 0; i < 20; i++) {
+        Clock firstClock(0);
+        firstClock.addRealHour();
+        Clock secondClock(i);
+        secondClock.addRealHour();
+        while (firstClock != secondClock) {
+            firstClock.addRealHour();
+            secondClock.addRealHour();
+        }
+        firstClock.printTime();
+
+        if (firstClock.hour != 0)
+            answers.push_back(i);
+    }
+    std::cout << "Answers to question b: \n";
+    for (int i = 0; i < answers.size(); i++) {
+        std::cout << answers[i] << " minutes fast\n";
+    }
 }

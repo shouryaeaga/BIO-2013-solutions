@@ -1,3 +1,4 @@
-# Solution for BRITISH INFORMATICS OLYMPIAD 2013 Question 1
+# Solution for BRITISH INFORMATICS OLYMPIAD 2013
 
-This solution gets 25/25 marks
+## Question 1
+This solution gets 25/25 marks.

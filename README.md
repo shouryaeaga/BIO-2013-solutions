@@ -4,7 +4,7 @@
 |:--------------:|:---------:|
 | Question 1 (a) |     ✅     |
 | Question 1 (b) |     ✅     |
-| Question 1 (c) |     ❌     |
+| Question 1 (c) |     ✅     |
 | Question 2 (a) |     ❌     |
 | Question 2 (b) |     ❌     |
 | Question 2 (c) |     ❌     |

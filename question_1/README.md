@@ -6,4 +6,4 @@
 |:--------------:|:---------:|
 | Question 1 (a) |     ✅     |
 | Question 1 (b) |     ✅     |
-| Question 1 (c) |     ❌     |
+| Question 1 (c) |     ✅     |

@@ -3,6 +3,7 @@
 #include <vector>
 
 void QuestionB();
+void QuestionC();
 
 class Clock {
 public:
@@ -52,9 +53,11 @@ int main() {
     firstClock.printTime();
 
     QuestionB();
+    QuestionC();
     return 0;
 }
 
+// Answer to Question B: 0, 8, 9, 16, 18
 void QuestionB() {
     std::vector<int> answers;
     for (int i = 0; i < 20; i++) {
@@ -75,4 +78,32 @@ void QuestionB() {
     for (int i = 0; i < answers.size(); i++) {
         std::cout << answers[i] << " minutes fast\n";
     }
+}
+
+// Answer to Question C: 1440 hours
+void QuestionC() {
+    std::cout << "Answering Question C\n";
+    int max = 0;
+    for (int i = 1; i < 60; i++) {
+        Clock firstClock(i);
+        for (int j = 1; j < 60; j++) {
+            if (i==j) {
+                continue;
+            }
+            if (i%2 == 0 && j%2 == 0) {
+                continue;
+            }
+            Clock secondClock(j);
+            int counter = 1;
+            firstClock.addRealHour();
+            secondClock.addRealHour();
+            while (secondClock != firstClock) {
+                counter++;
+                firstClock.addRealHour();
+                secondClock.addRealHour();
+            }
+            max = max > counter ? max : counter;
+        }
+    }
+    std::cout << "Answer to question C: " << max << " hours\n";
 }
